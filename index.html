@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐍 Snake Game</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>🐍 Snake</h1>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+        <div class="score-board">
+            <span>🏆 Score:</span>
+            <span id="scoreDisplay">0</span>
+            <span style="margin-left: 20px;">👑 Best:</span>
+            <span id="highScoreDisplay">0</span>
+        </div>
+        
+        <div class="controls-row">
+            <button id="restartBtn">🔄 Restart</button>
+            <button id="settingsToggleBtn">⚙️ Settings</button>
+        </div>
+        
+        <!-- Settings Panel -->
+        <div id="settingsPanel" class="settings-panel" style="display:none;">
+            <h3>⚙️ Game Settings</h3>
+            
+            <div class="setting-group">
+                <label>🎨 Theme:</label>
+                <select id="themeSelect" data-setting="theme">
+                    <option value="neon">💜 Neon</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="light">☀️ Light</option>
+                    <option value="retro">🕹️ Retro</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>📐 Grid Size:</label>
+                <select id="gridSizeSelect" data-setting="gridSize">
+                    <option value="15">15×15 (Easy)</option>
+                    <option value="20">20×20 (Normal)</option>
+                    <option value="25">25×25 (Hard)</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>🏃 Speed:</label>
+                <select id="speedSelect" data-setting="speed">
+                    <option value="slow">🐢 Slow</option>
+                    <option value="normal">🐇 Normal</option>
+                    <option value="fast">🚀 Fast</option>
+                    <option value="insane">💥 Insane</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>🧱 Walls:</label>
+                <select id="wallModeSelect" data-setting="wallMode">
+                    <option value="off">🚫 Off</option>
+                    <option value="on">🧱 On</option>
+                    <option value="moving">🌀 Moving</option>
+                </select>
+            </div>
+            
+            <div class="setting-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="soundCheckbox" data-setting="soundEnabled">
+                    🔊 Sound
+                </label>
+            </div>
+            
+            <div class="setting-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="showGridCheckbox" data-setting="showGrid" checked>
+                    📏 Show Grid
+                </label>
+            </div>
+            
+            <div class="setting-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="showEyesCheckbox" data-setting="showEyes" checked>
+                    👀 Snake Eyes
+                </label>
+            </div>
+            
+            <div class="settings-actions">
+                <button id="resetSettingsBtn" class="danger-btn">🔄 Reset Settings</button>
+                <button id="closeSettingsBtn">✖ Close</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> or <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>
+            <br>
+            <kbd>Enter</kbd> / <kbd>R</kbd> Restart &nbsp;|&nbsp; <kbd>M</kbd> Toggle Sound
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="js/config.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/food.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
