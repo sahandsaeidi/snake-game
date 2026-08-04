@@ -1,0 +1,47 @@
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.game-container {
+    background: #0f3460;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    color: #00d2ff;
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+canvas {
+    background: #1a1a2e;
+    border: 3px solid #00d2ff;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+}
+
+.score-board {
+    color: #fff;
+}
+
+.score-board span {
+    color: #00d2ff;
+}
+
+button {
+    background: #00d2ff;
+    color: #1a1a2e;
+}
+
+button:hover {
+    background: #00b4d8;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+}
+
+.controls {
+    color: #aaa;
+}
+
+.controls kbd {
+    background: #2a2a4a;
+    color: #fff;
+    border: 1px solid #444;
+}
