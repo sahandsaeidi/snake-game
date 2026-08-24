@@ -1,50 +1,63 @@
-@media (max-width: 500px) {
-    .game-container {
-        padding: 15px;
-    }
-
-    canvas {
-        width: 300px;
-        height: 300px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .score-board {
-        font-size: 18px;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    button {
-        padding: 8px 20px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 350px) {
-    canvas {
-        width: 250px;
-        height: 250px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-}
-
 @media (max-width: 768px) {
+    .game-container {
+        padding: 10px !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+    }
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 350px !important;
+        aspect-ratio: 1/1 !important;
+    }
+    h1 {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+    .score-board {
+        font-size: 16px !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        gap: 10px !important;
+        padding: 5px 0 !important;
+    }
+    .score-board span {
+        font-size: 20px !important;
+    }
+    button {
+        padding: 8px 15px !important;
+        font-size: 14px !important;
+    }
+    .controls-row {
+        gap: 8px !important;
+    }
+    .controls-row button {
+        width: auto !important;
+        padding: 8px 15px !important;
+        font-size: 13px !important;
+    }
+    .controls {
+        font-size: 12px !important;
+    }
+    .controls kbd {
+        padding: 2px 8px !important;
+        font-size: 11px !important;
+    }
     #mobileControls {
         display: block !important;
-        margin-top: 20px;
+        margin-top: 15px !important;
     }
-    
+    #mobileControls > div {
+        gap: 6px !important;
+    }
+    #mobileControls > div > div {
+        gap: 20px !important;
+    }
     .dpad-btn {
-        width: 65px !important;
-        height: 65px !important;
-        font-size: 28px !important;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 24px !important;
         background: rgba(255, 255, 255, 0.1) !important;
         border: 2px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 15px !important;
@@ -54,29 +67,130 @@
         -webkit-user-select: none !important;
         transition: all 0.1s ease !important;
     }
-    
     .dpad-btn:active {
-        transform: scale(0.9) !important;
+        transform: scale(0.85) !important;
         background: rgba(255, 255, 255, 0.3) !important;
         border-color: #00d2ff !important;
-        box-shadow: 0 0 20px rgba(0, 210, 255, 0.3) !important;
+        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4) !important;
     }
-    
-    .game-container {
+    .settings-panel {
         padding: 15px !important;
+        margin-top: 10px !important;
+        max-height: 60vh !important;
+        overflow-y: auto !important;
     }
-    
-    canvas {
+    .settings-panel h3 {
+        font-size: 18px !important;
+    }
+    .setting-group {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px !important;
+        padding: 6px 0 !important;
+    }
+    .setting-group label {
+        font-size: 14px !important;
+    }
+    .setting-group select,
+    .setting-group input[type="range"] {
         width: 100% !important;
-        height: auto !important;
-        max-width: 350px !important;
+        min-width: unset !important;
+        padding: 6px 8px !important;
+        font-size: 13px !important;
+    }
+    .checkbox-group {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    .settings-actions {
+        flex-direction: row !important;
+        gap: 8px !important;
+    }
+    .settings-actions button {
+        flex: 1 !important;
+        padding: 8px 12px !important;
+        font-size: 13px !important;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+    .game-container {
+        padding: 8px !important;
+        max-width: 100% !important;
+    }
+    canvas {
+        max-width: 280px !important;
+    }
+    h1 {
+        font-size: 20px !important;
+    }
+    .score-board {
+        font-size: 14px !important;
+    }
+    .score-board span {
+        font-size: 18px !important;
+    }
+    button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    .controls-row button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
     .dpad-btn {
-        width: 55px !important;
-        height: 55px !important;
-        font-size: 22px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 20px !important;
+    }
+    #mobileControls > div > div {
+        gap: 15px !important;
+    }
+    .settings-panel {
+        padding: 10px !important;
+        max-height: 50vh !important;
+    }
+    .settings-panel h3 {
+        font-size: 16px !important;
+    }
+    .setting-group label {
+        font-size: 13px !important;
+    }
+    .setting-group select,
+    .setting-group input[type="range"] {
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+    }
+    .settings-actions button {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
+    }
+    .controls {
+        font-size: 10px !important;
+    }
+    .controls kbd {
+        font-size: 10px !important;
+        padding: 2px 6px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    canvas {
+        max-width: 220px !important;
+    }
+    .dpad-btn {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 16px !important;
+    }
+    #mobileControls > div > div {
+        gap: 12px !important;
+    }
+    .score-board {
+        font-size: 12px !important;
+    }
+    .score-board span {
+        font-size: 15px !important;
     }
 }
