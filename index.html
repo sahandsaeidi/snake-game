@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐍 Snake Game</title>
     
-    <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -18,17 +17,16 @@
         <canvas id="gameCanvas" width="400" height="400"></canvas>
 
         <div id="mobileControls" style="display: none; margin-top: 20px; user-select: none; -webkit-user-select: none;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <button class="dpad-btn" data-dir="up" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬆️</button>
-        <div style="display: flex; gap: 30px;">
-            <button class="dpad-btn" data-dir="left" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬅️</button>
-            <button class="dpad-btn" data-dir="right" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">➡️</button>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <button class="dpad-btn" data-dir="up" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬆️</button>
+                <div style="display: flex; gap: 30px;">
+                    <button class="dpad-btn" data-dir="left" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬅️</button>
+                    <button class="dpad-btn" data-dir="right" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">➡️</button>
+                </div>
+                <button class="dpad-btn" data-dir="down" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬇️</button>
+            </div>
         </div>
-        <button class="dpad-btn" data-dir="down" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬇️</button>
-    </div>
-</div>
-</div>
-        
+
         <div class="score-board">
             <span>🏆 Score:</span>
             <span id="scoreDisplay">0</span>
@@ -41,7 +39,6 @@
             <button id="settingsToggleBtn">⚙️ Settings</button>
         </div>
         
-        <!-- Settings Panel -->
         <div id="settingsPanel" class="settings-panel" style="display:none;">
             <h3>⚙️ Game Settings</h3>
             
@@ -117,7 +114,6 @@
         </div>
     </div>
 
-    <!-- JS Files -->
     <script src="js/config.js"></script>
     <script src="js/score.js"></script>
     <script src="js/snake.js"></script>
