@@ -1,6 +1,6 @@
 # 🐍 Snake Game
 
-> A classic Snake game with advanced features built with HTML, CSS, and JavaScript.
+> A classic Snake game with advanced features, mobile touch controls, and responsive design built with HTML, CSS, and JavaScript.
 
 
 ---
@@ -10,6 +10,7 @@
 | Feature | Description |
 |---------|-------------|
 | 🎮 **Keyboard Controls** | Arrow keys or WASD to move |
+| 📱 **Mobile Touch Controls** | D-Pad for mobile devices |
 | 🔊 **Sound Effects** | Real-time audio feedback using Web Audio API |
 | 🎨 **4 Color Themes** | Neon, Dark, Light, Retro |
 | 📐 **Grid Size** | Adjustable (15×15, 20×20, 25×25) |
@@ -19,26 +20,27 @@
 | 📏 **Grid Display** | Toggle grid visibility |
 | 🏆 **High Score** | Automatically saved in browser |
 | 💾 **Settings** | All preferences saved in localStorage |
-| 📱 **Responsive** | Works on all screen sizes |
+| 📱 **Responsive** | Works on all screen sizes (Desktop, Tablet, Mobile) |
 
 ---
 
 ## 🎮 How to Play
 
-1. Use **Arrow Keys** or **WASD** to control the snake
-2. Eat the red food to grow and earn points
-3. Avoid hitting walls or your own tail
-4. The game gets faster every 5 points!
-5. Try to beat your high score!
+1. Use **Arrow Keys** or **WASD** to control the snake (Desktop)
+2. Use **D-Pad** buttons on mobile devices
+3. Eat the red food to grow and earn points
+4. Avoid hitting walls or your own tail
+5. The game gets faster every 5 points!
+6. Try to beat your high score!
 
 ### 🎯 Controls
 
-| Key | Action |
-|-----|--------|
-| `↑` / `W` | Move Up |
-| `↓` / `S` | Move Down |
-| `←` / `A` | Move Left |
-| `→` / `D` | Move Right |
+| Key / Button | Action |
+|--------------|--------|
+| `↑` / `W` / `⬆️` (D-Pad) | Move Up |
+| `↓` / `S` / `⬇️` (D-Pad) | Move Down |
+| `←` / `A` / `⬅️` (D-Pad) | Move Left |
+| `→` / `D` / `➡️` (D-Pad) | Move Right |
 | `Enter` / `R` | Restart Game |
 | `M` | Toggle Sound |
 
@@ -46,23 +48,13 @@
 
 ## 🛠️ Technologies Used
 
-```mermaid
-graph LR
-    A[HTML5] --> B[CSS3]
-    A --> C[JavaScript]
-    C --> D[Canvas API]
-    C --> E[Web Audio API]
-    C --> F[localStorage]
-    B --> G[Responsive Design]
-    B --> H[4 Color Themes]
-```
-
 - **HTML5** - Semantic markup
 - **CSS3** - Custom properties, animations, responsive design
 - **Vanilla JavaScript** - No external libraries
 - **Canvas API** - Game rendering
 - **Web Audio API** - Sound effects
 - **localStorage** - Save high score and settings
+- **D-Pad** - Mobile touch controls with CSS Media Queries
 
 ---
 
@@ -73,14 +65,13 @@ snake-game/
 │
 ├── index.html              # Main HTML file
 ├── README.md               # Documentation
-├── LICENSE                 # License file
+├── LICENSE                 # License file (All Rights Reserved)
 ├── .gitignore              # Git ignore rules
-├── package.json            # Project metadata
 │
 ├── css/
 │   ├── style.css           # Base styles
 │   ├── theme.css           # Color themes
-│   ├── responsive.css      # Media queries
+│   ├── responsive.css      # Media queries & mobile D-Pad
 │   └── settings.css        # Settings panel styles
 │
 ├── js/
@@ -89,7 +80,7 @@ snake-game/
 │   ├── snake.js            # Snake management
 │   ├── food.js             # Food management
 │   ├── canvas.js           # Rendering engine
-│   ├── controller.js       # Keyboard controls
+│   ├── controller.js       # Keyboard & D-Pad controls
 │   ├── score.js            # Score tracking
 │   ├── config.js           # Configuration
 │   ├── sound.js            # Sound system
@@ -104,18 +95,18 @@ snake-game/
 ## 🚀 Installation & Usage
 
 ### Option 1: Play Online
-Visit the live demo: [https://sahandsaeidi.github.io/snake-game](https://sahandsaeidi.github.io/snake-game)
+Visit the live demo:  
+🔗 [https://sahandsaeidi.github.io/snake-game](https://sahandsaeidi.github.io/snake-game)
 
----
 
 ## 🎨 Theme Preview
 
-| Theme | Preview |
-|-------|---------|
-| 💜 **Neon** | Cyberpunk style with glowing colors |
-| 🌙 **Dark** | Minimal dark design |
-| ☀️ **Light** | Clean bright interface |
-| 🕹️ **Retro** | Classic arcade feel |
+| Theme | Description |
+|-------|-------------|
+| 💜 **Neon** | Cyberpunk style with glowing neon colors |
+| 🌙 **Dark** | Minimal dark design for night gaming |
+| ☀️ **Light** | Clean and bright interface |
+| 🕹️ **Retro** | Classic arcade feel with retro colors |
 
 ---
 
@@ -140,10 +131,13 @@ const CONFIG = {
 
 ## 📱 Responsive Design
 
-The game adapts to all screen sizes:
-- **Desktop** - Full experience
-- **Tablet** - Optimized layout
-- **Mobile** - Touch-friendly controls
+| Device | Screen Size | Features |
+|--------|-------------|----------|
+| **Desktop** | > 1024px | Full experience, keyboard controls |
+| **Tablet** | 768px - 1024px | Optimized layout, D-Pad appears |
+| **Mobile** | < 768px | D-Pad controls, responsive canvas |
+
+The game automatically detects mobile devices and shows/hides the D-Pad accordingly.
 
 ---
 
@@ -156,18 +150,16 @@ The game adapts to all screen sizes:
 | Edge | 90+ | ✅ Fully supported |
 | Safari | 14+ | ✅ Fully supported |
 | Opera | 76+ | ✅ Fully supported |
+| Mobile Chrome | 90+ | ✅ Fully supported |
+| Mobile Safari | 14+ | ✅ Fully supported |
 
 ---
 
 ## 🤝 Contributing
 
-This is a proprietary project, but feedback and suggestions are welcome!
+This is a proprietary project under **All Rights Reserved** license, but feedback and suggestions are welcome!
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+For any inquiries, please contact via GitHub.
 
 ---
 
@@ -175,7 +167,7 @@ This is a proprietary project, but feedback and suggestions are welcome!
 
 **All Rights Reserved** - This project is proprietary software.
 
-Copyright © 2024 [Your Name]. All rights reserved.
+Copyright © 2024-2025 Sahand Saeidi. All rights reserved.
 
 You may NOT:
 - Copy or reproduce this code
@@ -183,6 +175,9 @@ You may NOT:
 - Use for commercial purposes
 - Remove copyright notices
 
+For permission requests, please contact through GitHub.
+
+See the LICENSE file for full details.
 
 ---
 
@@ -195,18 +190,26 @@ You may NOT:
 
 ## ⭐ Show Your Support
 
-If you like this project, please give it a ⭐ on GitHub!
+If you like this project, please give it a ⭐ on GitHub!  
+It helps a lot and motivates me to build more!
 
 ---
 
-
 ## 🎯 Roadmap
 
-- [ ] Add mobile touch controls
-- [ ] Add power-ups (speed boost, shield, etc.)
-- [ ] Add multiplayer mode
-- [ ] Add achievements system
-- [ ] Add daily challenges
+- [x] Basic Snake game
+- [x] 4 Color themes
+- [x] Sound effects
+- [x] Settings panel
+- [x] High score tracking
+- [x] Mobile D-Pad controls
+- [x] Responsive design
+- [x] All Rights Reserved license
+- [ ] Power-ups (speed boost, shield, etc.)
+- [ ] Multiplayer mode
+- [ ] Achievements system
+- [ ] Daily challenges
+- [ ] Online leaderboard
 
 ---
 
@@ -214,11 +217,12 @@ If you like this project, please give it a ⭐ on GitHub!
 
 - Inspired by the classic Nokia Snake game
 - Sound effects generated with Web Audio API
+- Built with vanilla JavaScript, no external libraries
 
 ---
 
-**Made with ❤️ by [Sahand Saeidi]**
+**Made with ❤️ by Sahand Saeidi**
 
 ---
 
-*Version : 1.0*
+*Version: 1.0.0*  
