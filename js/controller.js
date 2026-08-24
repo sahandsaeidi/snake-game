@@ -90,14 +90,14 @@ var Controller = {
             toggleBtn.addEventListener('click', () => {
                 const isVisible = panel.style.display !== 'none' && panel.style.display !== '';
                 panel.style.display = isVisible ? 'none' : 'block';
-                toggleBtn.textContent = isVisible ? '⚙️ تنظیمات' : '✖ بستن تنظیمات';
+                toggleBtn.textContent = isVisible ? '⚙️ Settings' : '✖ Close Settings';
             });
         }
         const closeBtn = document.getElementById('closeSettingsBtn');
         if (closeBtn && toggleBtn && panel) {
             closeBtn.addEventListener('click', () => {
                 panel.style.display = 'none';
-                toggleBtn.textContent = '⚙️ تنظیمات';
+                toggleBtn.textContent = '⚙️ Settings';
             });
         }
         this.bindSettingsEvents();
