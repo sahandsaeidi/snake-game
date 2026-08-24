@@ -16,6 +16,20 @@
     <div class="game-container">
         <h1>🐍 Snake</h1>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <div id="mobileControls" style="display: none; margin-top: 20px; user-select: none; -webkit-user-select: none;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <button class="dpad-btn" data-dir="up" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬆️</button>
+        
+        <div style="display: flex; gap: 30px;">
+            <button class="dpad-btn" data-dir="left" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬅️</button>
+            
+            <button class="dpad-btn" data-dir="right" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">➡️</button>
+        </div>
+        
+        <button class="dpad-btn" data-dir="down" style="width: 70px; height: 70px; font-size: 30px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; color: white; cursor: pointer; touch-action: none; backdrop-filter: blur(5px);">⬇️</button>
+    </div>
+</div>
         
         <div class="score-board">
             <span>🏆 Score:</span>
