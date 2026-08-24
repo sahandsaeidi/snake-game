@@ -1,30 +1,67 @@
 #mobileControls {
-    display: none !important;
+    display: none;
+}
+.dpad-btn {
+    display: none;
 }
 
 @media (max-width: 768px) {
     #mobileControls {
         display: block !important;
-        margin-top: 15px !important;
     }
     .dpad-btn {
+        display: inline-block !important;
         width: 65px !important;
         height: 65px !important;
         font-size: 28px !important;
-        background: rgba(255,255,255,0.1) !important;
-        border: 2px solid rgba(255,255,255,0.2) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 15px !important;
         color: white !important;
         touch-action: none !important;
         user-select: none !important;
         -webkit-user-select: none !important;
-        transition: 0.1s ease !important;
+        transition: all 0.1s ease !important;
     }
     .dpad-btn:active {
         transform: scale(0.85) !important;
-        background: rgba(255,255,255,0.3) !important;
+        background: rgba(255, 255, 255, 0.3) !important;
         border-color: #00d2ff !important;
-        box-shadow: 0 0 30px rgba(0,210,255,0.4) !important;
+        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4) !important;
+    }
+    .game-container {
+        padding: 10px !important;
+        max-width: 100% !important;
+    }
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 350px !important;
+    }
+    .score-board {
+        font-size: 14px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    .controls-row {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    .controls-row button {
+        font-size: 12px !important;
+        padding: 6px 12px !important;
+    }
+    .settings-panel {
+        padding: 10px !important;
+        max-height: 50vh !important;
+        overflow-y: auto !important;
+    }
+    .setting-group {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .setting-group select {
+        width: 100% !important;
     }
 }
 
@@ -34,6 +71,9 @@
         height: 55px !important;
         font-size: 22px !important;
     }
+    canvas {
+        max-width: 280px !important;
+    }
 }
 
 @media (max-width: 380px) {
@@ -41,5 +81,8 @@
         width: 46px !important;
         height: 46px !important;
         font-size: 18px !important;
+    }
+    canvas {
+        max-width: 220px !important;
     }
 }
