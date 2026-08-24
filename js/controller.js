@@ -69,7 +69,7 @@ var Controller = {
     },
 
     isMobile() {
-        return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
     },
 
     showMobileControls() {
@@ -138,7 +138,7 @@ var Controller = {
                     const panel = document.getElementById('settingsPanel');
                     const toggleBtn = document.getElementById('settingsToggleBtn');
                     if (panel) panel.style.display = 'none';
-                    if (toggleBtn) toggleBtn.textContent = '⚙️ تنظیمات';
+                    if (toggleBtn) toggleBtn.textContent = '⚙️ Settings';
                 }
             });
         }
