@@ -1,25 +1,23 @@
-
-
 var Settings = {
     defaults: {
-        theme: 'neon',        // 'neon', 'dark', 'light', 'retro'
-        gridSize: 20,         // 15, 20, 25
-        speed: 'normal',      // 'slow', 'normal', 'fast', 'insane'
+        theme: 'neon',
+        gridSize: 20,
+        speed: 'normal',
         soundEnabled: true,
         showGrid: true,
         showEyes: true,
-        wallMode: 'off',      // 'off', 'on', 'moving'
-        highScore: 0
+        wallMode: 'off',
+        offlineMode: false
     },
 
     current: {},
+
     init() {
         this.load();
-        
         this.apply();
-        
         console.log('⚙️ Settings loaded:', this.current);
     },
+
     save() {
         try {
             localStorage.setItem('snakeSettings', JSON.stringify(this.current));
@@ -43,6 +41,7 @@ var Settings = {
             this.current = { ...this.defaults };
         }
     },
+
     get(key) {
         return this.current[key] !== undefined ? this.current[key] : this.defaults[key];
     },
@@ -51,18 +50,51 @@ var Settings = {
         this.current[key] = value;
         this.save();
         this.apply();
-        
-   
+
+        if (key === 'offlineMode') {
+            this.handleOfflineMode(value);
+        }
+
         if (['gridSize', 'speed', 'wallMode'].includes(key)) {
             if (typeof Game !== 'undefined') {
                 Game.restart();
             }
         }
-        
-        
+
         this.updateUI();
-        
         console.log(`⚙️ Setting changed: ${key} = ${value}`);
+    },
+
+    handleOfflineMode(enabled) {
+        const statusDiv = document.getElementById('offlineStatus');
+        const statusText = document.getElementById('offlineStatusText');
+        
+        if (enabled) {
+            statusDiv.style.display = 'flex';
+            statusText.textContent = '📥 Downloading game...';
+            
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/snake-game/sw.js')
+                    .then(() => {
+                        statusText.textContent = '✅ Game downloaded successfully! (Offline)';
+                        setTimeout(() => {
+                            statusDiv.style.display = 'none';
+                        }, 3000);
+                    })
+                    .catch(() => {
+                        statusText.textContent = '❌ Download failed! Please try again.';
+                    });
+            } else {
+                statusText.textContent = '❌ Your browser does not support this feature.';
+            }
+        } else {
+            statusDiv.style.display = 'none';
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(regs => {
+                    regs.forEach(reg => reg.unregister());
+                });
+            }
+        }
     },
 
     toggle(key) {
@@ -126,6 +158,7 @@ var Settings = {
         const mode = this.get('wallMode');
         console.log(`🧱 Wall mode: ${mode}`);
     },
+
     updateUI() {
         document.querySelectorAll('[data-setting]').forEach(el => {
             const key = el.dataset.setting;
