@@ -34,3 +34,49 @@
         font-size: 20px;
     }
 }
+
+@media (max-width: 768px) {
+    #mobileControls {
+        display: block !important;
+        margin-top: 20px;
+    }
+    
+    .dpad-btn {
+        width: 65px !important;
+        height: 65px !important;
+        font-size: 28px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 15px !important;
+        color: white !important;
+        touch-action: none !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        transition: all 0.1s ease !important;
+    }
+    
+    .dpad-btn:active {
+        transform: scale(0.9) !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.3) !important;
+    }
+    
+    .game-container {
+        padding: 15px !important;
+    }
+    
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 350px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .dpad-btn {
+        width: 55px !important;
+        height: 55px !important;
+        font-size: 22px !important;
+    }
+}
