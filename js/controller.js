@@ -3,7 +3,6 @@ var Controller = {
         document.addEventListener('keydown', (e) => {
             const key = e.key;
             e.preventDefault();
-
             switch (key) {
                 case 'ArrowUp':
                 case 'w':
@@ -39,7 +38,6 @@ var Controller = {
                     break;
             }
         });
-
         const restartBtn = document.getElementById('restartBtn');
         if (restartBtn) {
             restartBtn.addEventListener('click', () => {
@@ -48,74 +46,111 @@ var Controller = {
                 }
             });
         }
-
         this.setupSettingsPanel();
         this.addSoundButton();
+        this.setupMobileControls();
+        this.showMobileControls();
     },
+
+    setupMobileControls() {
+        const buttons = document.querySelectorAll('.dpad-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dir = btn.dataset.dir;
+                Snake.setDirection(dir);
+            });
+            btn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const dir = btn.dataset.dir;
+                Snake.setDirection(dir);
+            });
+        });
+    },
+
+    isMobile() {
+        return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    },
+
+    showMobileControls() {
+        const controls = document.getElementById('mobileControls');
+        if (controls) {
+            if (this.isMobile()) {
+                controls.style.display = 'block';
+            } else {
+                controls.style.display = 'none';
+            }
+        }
+    },
+
     setupSettingsPanel() {
         const toggleBtn = document.getElementById('settingsToggleBtn');
         const panel = document.getElementById('settingsPanel');
-        
         if (toggleBtn && panel) {
             toggleBtn.addEventListener('click', () => {
-                const isVisible = panel.style.display !== 'none';
+                const isVisible = panel.style.display !== 'none' && panel.style.display !== '';
                 panel.style.display = isVisible ? 'none' : 'block';
-                toggleBtn.textContent = isVisible ? '⚙️ Settings' : '✖ Close';
+                toggleBtn.textContent = isVisible ? '⚙️ تنظیمات' : '✖ بستن تنظیمات';
             });
         }
-    
         const closeBtn = document.getElementById('closeSettingsBtn');
-        if (closeBtn) {
+        if (closeBtn && toggleBtn && panel) {
             closeBtn.addEventListener('click', () => {
                 panel.style.display = 'none';
-                if (toggleBtn) toggleBtn.textContent = '⚙️ Settings';
+                toggleBtn.textContent = '⚙️ تنظیمات';
             });
         }
-        
         this.bindSettingsEvents();
     },
 
     bindSettingsEvents() {
         document.querySelectorAll('[data-setting]').forEach(el => {
             const key = el.dataset.setting;
-            
-            if (el.type === 'checkbox') {
-                el.addEventListener('change', () => {
-                    Settings.set(key, el.checked);
+            const newEl = el.cloneNode(true);
+            el.parentNode.replaceChild(newEl, el);
+            if (newEl.type === 'checkbox') {
+                newEl.addEventListener('change', function() {
+                    if (typeof Settings !== 'undefined') {
+                        Settings.set(key, this.checked);
+                    }
                 });
-            } else if (el.tagName === 'SELECT') {
-                el.addEventListener('change', () => {
-                    Settings.set(key, el.value);
+            } else if (newEl.tagName === 'SELECT') {
+                newEl.addEventListener('change', function() {
+                    if (typeof Settings !== 'undefined') {
+                        Settings.set(key, this.value);
+                    }
                 });
-            } else if (el.type === 'range') {
-                el.addEventListener('input', () => {
-                    Settings.set(key, parseInt(el.value));
-                    const display = document.getElementById(`${key}Display`);
-                    if (display) display.textContent = el.value;
+            } else if (newEl.type === 'range') {
+                newEl.addEventListener('input', function() {
+                    if (typeof Settings !== 'undefined') {
+                        Settings.set(key, parseInt(this.value));
+                    }
                 });
             }
         });
-        
         const resetBtn = document.getElementById('resetSettingsBtn');
         if (resetBtn) {
-            resetBtn.addEventListener('click', () => {
-                Settings.reset();
-                const panel = document.getElementById('settingsPanel');
-                const toggleBtn = document.getElementById('settingsToggleBtn');
-                if (panel) panel.style.display = 'none';
-                if (toggleBtn) toggleBtn.textContent = '⚙️ Settings';
+            const newResetBtn = resetBtn.cloneNode(true);
+            resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
+            newResetBtn.addEventListener('click', () => {
+                if (typeof Settings !== 'undefined') {
+                    Settings.reset();
+                    const panel = document.getElementById('settingsPanel');
+                    const toggleBtn = document.getElementById('settingsToggleBtn');
+                    if (panel) panel.style.display = 'none';
+                    if (toggleBtn) toggleBtn.textContent = '⚙️ تنظیمات';
+                }
             });
         }
     },
+
     addSoundButton() {
         const container = document.querySelector('.controls-row');
         if (!container) return;
-        
         if (document.getElementById('soundBtn')) return;
-        
         const soundBtn = document.createElement('button');
         soundBtn.id = 'soundBtn';
-        soundBtn.textContent = Sound.enabled ? '🔊' : '🔇';
+        soundBtn.textContent = '🔊';
         soundBtn.style.background = 'transparent';
         soundBtn.style.fontSize = '24px';
         soundBtn.style.padding = '5px 15px';
@@ -123,22 +158,23 @@ var Controller = {
         soundBtn.style.borderRadius = '10px';
         soundBtn.style.color = '#00d2ff';
         soundBtn.style.cursor = 'pointer';
-        
         soundBtn.addEventListener('click', () => {
-            Sound.toggle();
-            this.updateSoundButton();
+            if (typeof Sound !== 'undefined') {
+                Sound.toggle();
+                this.updateSoundButton();
+                if (typeof Settings !== 'undefined') {
+                    Settings.set('soundEnabled', Sound.enabled);
+                }
+            }
         });
-
         container.appendChild(soundBtn);
+        this.updateSoundButton();
     },
 
     updateSoundButton() {
         const btn = document.getElementById('soundBtn');
-        if (btn) {
+        if (btn && typeof Sound !== 'undefined') {
             btn.textContent = Sound.enabled ? '🔊' : '🔇';
-        }
-        if (Settings) {
-            Settings.set('soundEnabled', Sound.enabled);
         }
     }
 };
