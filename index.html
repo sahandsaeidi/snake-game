@@ -100,6 +100,18 @@
                     👀 Snake Eyes
                 </label>
             </div>
+
+            <!-- دکمه آفلاین جدید -->
+            <div class="setting-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="offlineCheckbox" data-setting="offlineMode">
+                    📥 Download & Play Offline
+                </label>
+            </div>
+            <div class="setting-group" id="offlineStatus" style="display:none;">
+                <label>📶 Status:</label>
+                <span id="offlineStatusText">Downloading...</span>
+            </div>
             
             <div class="settings-actions">
                 <button id="resetSettingsBtn" class="danger-btn">🔄 Reset Settings</button>
